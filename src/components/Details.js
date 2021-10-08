@@ -5,8 +5,9 @@ import styled from "styled-components";
 
 const StyledDetails = styled.div`
     background-color: black;
-    color: white;
-
+    color: #FFE81F;
+    text-shadow: 1px 1px 5px rgb(100, 99, 89);
+    opacity: 1;
 `
 
 export default function Details(props) {
@@ -27,6 +28,14 @@ export default function Details(props) {
     "Leia Organa" : "https://static.wikia.nocookie.net/fictupedia/images/1/1d/Leia-princess-leia-organa-solo-skywalker-9301321-576-1010.jpg/revision/latest/scale-to-width-down/180?cb=20170120065805",
     "Owen Lars" : "https://static.wikia.nocookie.net/starwars/images/9/91/OwenLarsHS-SWE.jpg/revision/latest/scale-to-width-down/700?cb=20120428164235"
     }
+
+    const CloseButton = styled.button`
+        font-size: larger;
+        background-color: black;
+        border: 1px solid black;
+        color: white;
+        text-shadow: 1px 1px 5px rgb(100, 99, 89);
+    `
     return (
         <StyledDetails>
             <h2>Character Details:</h2>
@@ -35,12 +44,16 @@ export default function Details(props) {
                 
                 <>
                     <h2>{details.name}</h2>
-                    <p>{details.name} is {details.mass} kilograms and {details.height} centimeters tall </p>
-                    <p>Film appearances: {details.films}</p>
+                    <p>Birth Year: {details.birth_year}</p>
+                    <p>Gender: {details.gender}</p>
+                    <p>Height: {details.height}cm</p>
+                    <p>Mass: {details.mass}kg</p>
+                    <p>Eye Color: {details.eye_color}</p>
+                    <p>Hair: {details.hair_color}</p>
                     
                 </>
             }
-            <button onClick={close}>Close</button>
+            <CloseButton onClick={close}>Close</CloseButton>
         </StyledDetails>
     )
 }
