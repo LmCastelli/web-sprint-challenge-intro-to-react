@@ -10,20 +10,20 @@ const StyledDetails = styled.div`
 `
 
 export default function Details(props) {
-    const {characterIndex, close} = props;
-    const  [details, setDetails] = useState(null);
+    const {characterIndex, close} = props
+    const  [details, setDetails] = useState(null)
 
     useEffect(() => {
         axios.get(`https://swapi.dev/api/people/${characterIndex}`)
         .then(res => {setDetails(res.data)})
-        .catch(err => {debugger})
+        .catch(err => {console.error(err)})
     }, [characterIndex])
 
     return (
         <StyledDetails>
             <h2>Character Details:</h2>
             { 
-                details && 
+                details !== null && 
                 
                 <>
                     <p>{details.name} is {details.mass} kilograms and {details.height} centimeters tall </p>

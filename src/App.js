@@ -6,7 +6,7 @@ import axios from 'axios';
 
 const App = () => {
   const [characters, setChar] = useState([]);
-  const [featuredCharacter, setFeatured] = useState(1)
+  const [featuredCharacter, setFeatured] = useState(null)
 
 
   const pickCharacter = idx => {
@@ -38,11 +38,11 @@ const App = () => {
       <h1 className="Header">Characters</h1>
     {
       characters.map((char, idx) => {
-        return <Character idx={(idx + 1)} action={pickCharacter} info={char} />
+        return <Character key ={idx} idx={(idx + 1)} action={pickCharacter} info={char} />
       })
     }
     {
-      setFeatured && <Details characterIndex={featuredCharacter} close={closeCharacter} />
+      featuredCharacter && <Details characterIndex={featuredCharacter} close={closeCharacter} />
     }
 
     </div>
