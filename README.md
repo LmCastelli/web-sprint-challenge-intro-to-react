@@ -79,6 +79,17 @@ After finishing your required elements, you can push your work further. These go
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. Put your answers underneath the questions:
 
 1. What is React JS and what problems does it solve? Support your answer with concepts introduced in class and from your personal research on the web.
+
+    React is used for making interfaces or UI components, and it does so by sort of combing HTML, CSS, and JS all in one place. Additionally, it helps to allow certain components to be updated as needed, to avoid having to reload entire pages or apps for one simple change. Based on how it handles state management, it can update certain components allowing for easier updates, and can pull data from other locations meaning we don't have to hand type every detail each time. This also means faster loading for data, and easier fixes due to how you can track what data is sent through components to the main app!
+
 1. Describe component state.
+
+    Component state can be altered using setState, and this causes said component to rerender. For example, I can declare const [friend, setFriend] = useState("Jacob") and for all purposes with anything I do with friend, I can easily rerender and alter what friend is set to using setFriend(X). I can set a default state as I did here (Jacob) maybe to test if my friend info is loading, or I can set it to be empty ('' or null) to not have a specific tab or window open on load. Once this is updated, that component will rerender, showing the new changes or new info as needed. 
+
 1. Describe props.
+
+    Props are what are passed down to components using the Props object. Instead of having to say const friendName = "jacob" const friendAge = 22 const friendLikes = [likes, more_likes] ..... we pass down props, allowing the components to share that info. Now, I can call props.name, props.age, etc, to not only avoid having to restate all these variables, but also to avoid misspelling data, labeling it incorrectly, or other possible errors as we may have several components passing data. 
+
 1. What are side effects, and how do you sync effects in a React component to changes of certain state or props?
+
+    Side effects are things that affect something outside of our function scope, like when we call for data from an API. Doing that is somewhat out of our control, as we can control when that request might go through, but not whether the server is up or anything. To sync these effects to changes of specific states or props, we can either insert an empty array ([]) to tell the effect to go after the initial load, put nothing to make it happen every load or change, or put a specific prop ([exampleProp]) to make that effect occur when a change happens in that prop. When we use this while getting data, we can search an API for specific data based on a unique Id, or name, etc. 

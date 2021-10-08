@@ -3,23 +3,28 @@ import React, {useState, useEffect} from "react";
 import axios from "axios";
 import styled from "styled-components";
 
+// Styling detail div, using the "opening scene yellow" as my color
 const StyledDetails = styled.div`
-    background-color: black;
+    /* background-color: black; */
     color: #FFE81F;
     text-shadow: 1px 1px 5px rgb(100, 99, 89);
     opacity: 1;
 `
 
+// Exporting what makes the detail page styled and appear
+
 export default function Details(props) {
     const {characterIndex, close} = props
     const  [details, setDetails] = useState(null)
 
+    // Grabbing individual character details
     useEffect(() => {
         axios.get(`https://swapi.dev/api/people/${characterIndex}`)
         .then(res => {setDetails(res.data)})
         .catch(err => {console.error(err)})
     }, [characterIndex])
 
+    // Work in progress, gonna try and finish this after the gym. Setting picture links into an object to have a picture appear
     const srcObj = {
     "Luke Skywalker" : "https://images2.minutemediacdn.com/image/fetch/w_850,h_560,c_fill,g_auto,f_auto/https%3A%2F%2Fdorksideoftheforce.com%2Ffiles%2F2021%2F01%2FLuke-Skywalker-Return-of-the-Jedi-850x560.jpg",
     "C-3PO" : "https://upload.wikimedia.org/wikipedia/en/5/5c/C-3PO_droid.png",
@@ -29,6 +34,7 @@ export default function Details(props) {
     "Owen Lars" : "https://static.wikia.nocookie.net/starwars/images/9/91/OwenLarsHS-SWE.jpg/revision/latest/scale-to-width-down/700?cb=20120428164235"
     }
 
+    // Styling button, used same styling as on Character.js
     const CloseButton = styled.button`
         font-size: larger;
         background-color: black;
@@ -36,6 +42,8 @@ export default function Details(props) {
         color: white;
         text-shadow: 1px 1px 5px rgb(100, 99, 89);
     `
+
+    // Returning details div 
     return (
         <StyledDetails>
             <h2>Character Details:</h2>
