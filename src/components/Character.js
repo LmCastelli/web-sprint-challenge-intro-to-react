@@ -16,11 +16,12 @@ const Button = styled.button`
 
 
 `
-export default function Character({info, action}) {
+export default function Character({info, action, idx}) {
     return (
         <StyledCharacter>
             {info.name}
-            <Button onClick={() => action(info)}>
+            
+            <Button onClick={() => action(idx)}>
                 Details
             </Button>
         </StyledCharacter>
